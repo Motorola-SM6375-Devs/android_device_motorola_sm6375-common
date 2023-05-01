@@ -375,6 +375,9 @@ on property:sys.boot_completed=1
     #Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
 
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
 # corefile limit
 on property:persist.debug.trace=1
     mkdir /data/core 0777 root root

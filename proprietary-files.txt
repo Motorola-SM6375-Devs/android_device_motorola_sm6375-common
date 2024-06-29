@@ -545,7 +545,7 @@ vendor/etc/media_blair/video_system_specs.json
 vendor/etc/media_holi/video_system_specs.json
 
 # OEM
-vendor/bin/motobox
+vendor/bin/motobox;SYMLINK=vendor/bin/expat
 
 # Peripheral manager
 vendor/bin/pm-proxy

@@ -72,6 +72,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/smd2                 0660   bluetooth  bluetooth
 /dev/smd3                 0660   bluetooth  bluetooth
 /dev/btpower              0660   bluetooth  system
+/dev/btfmslim             0660   bluetooth  system
 
 #permissions for pta
 /dev/pta                  0660   system     system
@@ -173,9 +174,14 @@ firmware_directories /vendor/firmware_mnt/image/
 
 #qvr
 /dev/qvr_external_sensor_ioctl      0660  system  system
-/sys/kernel/qvr_external_sensor/fd  0660  system  system
 /dev/bus/usb/*                      0660  root    usb
 /dev/hidraw*                        0660  root    usb
+
+#rawdump
+/dev/block/platform/soc/*/by-name/rawdump       0660   root     system
+# Trustonic TEE device
+/dev/mobicore             0600   system     system
+/dev/mobicore-user        0666   system     system
 
 # wlan
 /dev/wcnss_wlan           0660   system     system
@@ -293,7 +299,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/devices/virtual/input/input*                   enable_ps_sensor 0660  system   input
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   input
 /sys/devices/virtual/input/input*                   do_flush         0660  system   input
-/dev/stmvl53l5            0660   system     camera
 
 # vm_bms
 /dev/vm_bms               0660   system     system
@@ -381,6 +386,13 @@ firmware_directories /vendor/firmware_mnt/image/
 # Kmsg device
 /dev/kmsg                                               0620   root       system
 
+# I2C
+/dev/i2c-*               0660   system     system
+
+# change permission for some capsensor nodes
+/sys/class/sensors/Moto\ CapSense\ Ch*   enable       0660    root    input
+/sys/class/sensors/Moto\ CapSense\ Ch*   poll_delay   0660    root    input
+
 # LED class devices
 /sys/class/leds/red      delay_on     0640    system    system
 /sys/class/leds/red      delay_off    0640    system    system
@@ -394,10 +406,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/leds/blue     delay_off    0640    system    system
 /sys/class/leds/blue     breath       0640    system    system
 /sys/class/leds/blue     trigger      0640    system    system
-/sys/class/leds/charging delay_on     0640    system    system
-/sys/class/leds/charging delay_off    0640    system    system
-/sys/class/leds/charging breath       0640    system    system
-/sys/class/leds/charging trigger      0640    system    system
 
 # NPU device
 /dev/msm_npu             0644   system     system
@@ -510,9 +518,3 @@ firmware_directories /vendor/firmware_mnt/image/
 
 # socinfo
 /sys/devices/soc0                                       serial_number                   0000    root    root
-
-# I2C
-/dev/i2c-*                0660   system     system
-
-# NFC ST Driver permissions
-/dev/st21nfc              0660   nfc        nfc

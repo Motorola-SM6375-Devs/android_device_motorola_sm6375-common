@@ -1060,7 +1060,8 @@ else
     # wsf Range : 1..1000 So set to bare minimum value 1.
     echo 1 > /proc/sys/vm/watermark_scale_factor
 
-    configure_zram_parameters
+    # remove zram config here due to already configed in init.mmi
+    #configure_zram_parameters
 
     configure_read_ahead_kb_values
 
@@ -1094,11 +1095,48 @@ function start_hbtp()
 }
 
 case "$target" in
+    "holi" )
+         echo 0-3 > /dev/cpuset/background/cpus
+        echo 1 > /sys/module/msm_show_resume_irq/parameters/debug_mask
+        ;;
+esac
+
+case "$target" in
     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627a"  | "msm7627_surf" | \
     "qsd8250_surf" | "qsd8250_ffa" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "qsd8650a_st1x")
         echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
         echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
         ;;
+esac
+
+# For Kodiak target for which cdsp is defective, we read remote cdsp status from fastrpc node
+# and if its value is false we disable cdsp daemon by setting the cdsp disable propety to true
+case "$target" in
+	"lahaina")
+		if [ -f /sys/devices/soc0/chip_family ]; then
+			chip_family_id=`cat /sys/devices/soc0/chip_family`
+		else
+			chip_family_id=-1
+		fi
+
+		echo "adsprpc : chip_family_id : $chip_faily_id" > /dev/kmsg
+
+		case "$chip_family_id" in
+			"0x76")
+			if [ -f /sys/devices/platform/soc/soc:qcom,msm_fastrpc/remote_cdsp_status ]; then
+				remote_cdsp_status=`cat /sys/devices/platform/soc/soc:qcom,msm_fastrpc/remote_cdsp_status`
+			else
+				remote_cdsp_status=-1
+			fi
+
+			echo "adsprpc : remote_cdsp_status : $remote_cdsp_status" > /dev/kmsg
+
+			if [ $remote_cdsp_status -eq 0 ]; then
+				setprop vendor.fastrpc.disable.cdsprpcd.daemon 1
+				echo "adsprpc : Disabled cdsp daemon" > /dev/kmsg
+			fi
+		 esac
+		  ;;
 esac
 
 case "$target" in
@@ -5282,14 +5320,11 @@ case "$target" in
 		echo 85 85 > /proc/sys/kernel/sched_downmigrate
 		echo 100 > /proc/sys/kernel/sched_group_upmigrate
 		echo 10 > /proc/sys/kernel/sched_group_downmigrate
-		echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
 		echo 0-3 > /dev/cpuset/background/cpus
 		echo 0-3 > /dev/cpuset/system-background/cpus
 
 
-		# Turn off scheduler boost at the end
-		echo 0 > /proc/sys/kernel/sched_boost
 
 		# configure governor settings for silver cluster
 		echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
@@ -5378,8 +5413,12 @@ case "$target" in
 				echo 0 > $npubw/bw_hwmon/idle_mbps
 		                echo 40 > $npubw/polling_interval
 				echo 0 > /sys/devices/virtual/npu/msm_npu/pwr
-	    done
-	done
+	                      done
+	           done
+	fi
+	# Turn off scheduler boost at the end
+	echo 0 > /proc/sys/kernel/sched_boost
+	echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
 	# memlat specific settings are moved to seperate file under
 	# device/target specific folder
@@ -5427,7 +5466,6 @@ case "$target" in
 			configure_automotive_sku_parameters
 		   fi
 		fi
-	fi
     ;;
 esac
 

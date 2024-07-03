@@ -1,31 +1,43 @@
 # Charge only mode configuration
 import /vendor/etc/init/hw/init.mmi.charge_only.rc
 
-on post-fs
-    # MOT_LED_CALIBRATION
-    chown camera camera /mnt/vendor/persist/camera/mot_ledcal
+on property:ro.build.type=userdebug && property:ro.vendor.mot.gki.path=*
+    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/watchdogtest.ko
 
-on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules exfat
-
-on property:ro.boot.default_usb_mode=device && property:vendor.usb.controller=*
-    setprop sys.usb.controller ${vendor.usb.controller}
-    write /sys/class/udc/${vendor.usb.controller}/device/../mode peripheral
+on early-init && property:ro.bootmode=mot-factory
+    insmod /vendor/lib/modules/moto_f_usbnet.ko
 
 on early-boot
     # Permission for Health Storage HAL
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/manual_gc
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/ufshid/trigger
+    chown system system /sys/devices/platform/soc/4804000.ufshc/manual_gc
+    chown system system /sys/devices/platform/soc/4804000.ufshc/ufshid/trigger
     #sync power supply with healthd
     wait /sys/class/power_supply/battery
     wait /sys/class/power_supply/usb
 
-on early-boot && property:ro.boot.bm_ulog_enabled=1
-    write /sys/module/bm_adsp_ulog/parameters/debug_enabled 1
+on property:ro.build.type=userdebug
+    setprop persist.vendor.qg.log_level 1
+#Enable qpnp-qg debug_mask
+#QG_DEBUG_PON | QG_DEBUG_STATUS | QG_DEBUG_IRQ | QG_DEBUG_PM | QG_DEBUG_ESR
+    write /sys/kernel/debug/qgauge/debug_mask 0x8A9
+#Enable mmi_smbcharger_iio debug
+    write /sys/module/mmi_smbcharger_iio/parameters/debug_enabled Y
 
-on charger && property:ro.boot.bm_ulog_enabled=1
-    write /sys/module/bm_adsp_ulog/parameters/debug_enabled 1
+on boot
+   # Set adaptive charging perms for HAL
+   chown system system /sys/module/qpnp_adaptive_charge/parameters/upper_limit
+   chown system system /sys/module/qpnp_adaptive_charge/parameters/lower_limit
 
 on property:sys.boot_completed=1
     write /sys/devices/platform/soc/soc:mmi,charger/state_sync 1
 
+on post-fs && property:ro.vendor.build.motfactory=1
+    write /sys/devices/platform/soc/soc:mmi,charger/state_sync 1
+    wait /sys/class/power_supply/battery/device/factory_image_mode
+    write /sys/class/power_supply/battery/device/factory_image_mode 1
+
+on property:vendor.boot_completed=1
+    start thermal-engine
+
+on property:dev.bootcomplete=1
+    stop llkd-${ro.debuggable:-0}

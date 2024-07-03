@@ -5,7 +5,7 @@ on init
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dsi_display_dc
     chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dsi_display_dc
 
-service vendor.livedisplay-hal-2-1 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service.motorola_lahaina
+service vendor.livedisplay-hal-2-1 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service.motorola_holi
     class late_start
     user system
     group system

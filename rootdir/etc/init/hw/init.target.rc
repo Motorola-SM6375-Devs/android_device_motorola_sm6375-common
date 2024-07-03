@@ -1,5 +1,5 @@
-
 # Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.
+# Copyright (c) 2022, Qualcomm Innovation Center, Inc. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -30,10 +30,10 @@
 import /vendor/etc/init/hw/init.mmi.rc
 
 import /vendor/etc/init/hw/init.qti.kernel.rc
-
 on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/vendor_modprobe.sh
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules q6_pdr_dlkm q6_notifier_dlkm snd_event_dlkm apr_dlkm adsp_loader_dlkm q6_dlkm native_dlkm pinctrl_wcd_dlkm pinctrl_lpi_dlkm swr_dlkm platform_dlkm hdmi_dlkm stub_dlkm wcd_core_dlkm wsa883x_dlkm bolero_cdc_dlkm wsa_macro_dlkm va_macro_dlkm rx_macro_dlkm tx_macro_dlkm bt_fm_slim wcd938x_dlkm wcd938x_slave_dlkm wcd937x_dlkm wcd937x_slave_dlkm swr_dmic_dlkm swr_haptics_dlkm machine_dlkm radio-i2c-rtc6226-qca cdsprm
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/vendor_modprobe.sh
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules q6_pdr_dlkm q6_notifier_dlkm snd_event_dlkm apr_dlkm adsp_loader_dlkm q6_dlkm native_dlkm pinctrl_lpi_dlkm swr_dlkm platform_dlkm stub_dlkm wcd_core_dlkm wsa881x_analog_dlkm bolero_cdc_dlkm va_macro_dlkm rx_macro_dlkm tx_macro_dlkm bt_fm_slim wcd938x_dlkm wcd938x_slave_dlkm wcd937x_dlkm wcd937x_slave_dlkm machine_dlkm radio-i2c-rtc6226-qca cdsprm
+    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qti.early_init.sh
     write /proc/sys/kernel/sched_boost 1
     wait /sys/devices/soc0/soc_id
 
@@ -65,8 +65,6 @@ on init
 
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
-    chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
 
 on early-fs
@@ -74,17 +72,13 @@ on early-fs
 
 on fs
     start hwservicemanager
-    mkdir /mnt/vendor/spunvm 0660 system system
     mount_all --early
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
-
-on fs && property:ro.boot.product.vendor.sku=lahaina
-    mkdir /mnt/vendor/spunvm 0660 system system
-    wait /dev/block/bootdevice/by-name/spunvm
-    mount vfat /dev/block/bootdevice/by-name/spunvm /mnt/vendor/spunvm rw noatime shortname=lower,uid=1000,gid=1000,dmask=007,fmask=007,context=u:object_r:vendor_spunvm_file:s0
+    mkdir /mnt/vendor/persist/wlan 0700 system system
+    chmod 0700 /mnt/vendor/persist/wlan
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
@@ -95,8 +89,6 @@ on late-fs
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
-    # Enable WLAN cold boot calibration
-    write /sys/devices/platform/soc/b0000000.qcom,cnss-qca6490/fs_ready 1
 
 on early-boot
     start vendor.sensors
@@ -106,36 +98,13 @@ on boot
     # set default schedTune value for camera-daemon
     write /dev/stune/camera-daemon/schedtune.prefer_idle 1
     write /dev/stune/camera-daemon/schedtune.boost 0
-    chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0049/trusted_touch_enable
-    chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-0/0-0049/trusted_touch_enable
-    chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_enable
-    chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_enable
-    chown system /sys/devices/platform/soc/988000.i2c/i2c-1/1-0038/trusted_touch_enable
-    chmod 0660 /sys/devices/platform/soc/988000.i2c/i2c-1/1-0038/trusted_touch_enable
-    chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0049/trusted_touch_event
-    chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-0/0-0049/trusted_touch_event
-    chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_event
-    chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_event
-    chown system /sys/devices/platform/soc/988000.i2c/i2c-1/1-0038/trusted_touch_event
-    chmod 0660 /sys/devices/platform/soc/988000.i2c/i2c-1/1-0038/trusted_touch_event
-    chown system /sys/devices/platform/soc/a94000.i2c/i2c-2/2-0062/trusted_touch_enable
-    chmod 0660 /sys/devices/platform/soc/a94000.i2c/i2c-2/2-0062/trusted_touch_enable
-    chown system /sys/devices/platform/soc/a94000.i2c/i2c-2/2-0062/trusted_touch_event
-    chmod 0660 /sys/devices/platform/soc/a94000.i2c/i2c-2/2-0062/trusted_touch_event
-    chown system /sys/devices/system/cpu/hyp_core_ctl/enable
-    chown system /sys/devices/system/cpu/hyp_core_ctl/hcc_min_freq
     #USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss_mdm"
-    setprop vendor.usb.controller a600000.dwc3
-    #Load WLAN driver
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ qca_cld3_wlan qca_cld3_qca6390
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/5.4-gki qca_cld3_wlan qca_cld3_qca6390
-    #Allow access to memory hotplug device attributes
-    chown system system /sys/kernel/mem-offline/anon_migrate
+    setprop vendor.usb.controller 4e00000.dwc3
 
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
@@ -147,7 +116,7 @@ on init && property:ro.boot.mode=charger
 
 on charger
     start vendor.power_off_alarm
-    setprop sys.usb.controller a600000.dwc3
+    setprop sys.usb.controller 4e00000.dwc3
     setprop sys.usb.configfs 1
 
 service vendor.lowi /vendor/bin/lowirpcd
@@ -177,7 +146,7 @@ service vendor.per_proxy /vendor/bin/pm-proxy
 
 #service vendor.mdm_helper /vendor/bin/mdm_helper
 #    class core
-#    group log system wakelock diag vendor_rfs
+#    group system wakelock
 #    disabled
 
 service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
@@ -189,16 +158,3 @@ on property:init.svc.vendor.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
-
-#fan-controller
-service fan_control_turn_on /vendor/bin/fan_control 1
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service fan_control_turn_off /vendor/bin/fan_control 0
-    class late_start
-    user root
-    disabled
-    oneshot

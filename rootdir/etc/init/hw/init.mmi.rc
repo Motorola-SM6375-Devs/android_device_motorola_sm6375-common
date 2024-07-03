@@ -8,6 +8,12 @@ on early-boot
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
 
 on init
+    chown system log /sys/fs/pstore/console-ramoops-0
+    chmod 0440 /sys/fs/pstore/console-ramoops-0
+    chown system log /sys/fs/pstore/annotate-ramoops-0
+    chmod 0640 /sys/fs/pstore/annotate-ramoops-0
+    chown system log /sys/fs/pstore/dmesg-ramoops-0
+    chmod 0640 /sys/fs/pstore/dmesg-ramoops-0
     chown system log /proc/driver/mmi_annotate
     chmod 0640 /proc/driver/mmi_annotate
 
@@ -243,8 +249,8 @@ on post-fs-data
     #Folder for hardware properties
     mkdir /data/vendor/hardware_revisions 0755 system system
 
-    # Imager tuning data for camera subsystem
-    mkdir /data/vendor/misc/imager 0771 camera camera
+    # Imager tuning metadata for camera subsystem
+    mkdir /data/vendor/misc/imager/metadata 0771 camera camera
 
     # NFC vendor data
     mkdir /data/vendor/nfc 0770 nfc nfc
@@ -363,6 +369,20 @@ service vendor.hal-fps-sh /vendor/bin/init.oem.fingerprint2.sh
     user root
     group system
     oneshot
+
+service fpc_ident /vendor/bin/hw/fpc_ident
+    class late_start
+    user system
+    group system
+    oneshot
+    disabled
+
+service egis_ident /vendor/bin/hw/egis_ident
+    class late_start
+    user system
+    group system
+    oneshot
+    disabled
 
 service vendor.touch-dead-sh /vendor/bin/init.oem.hw.sh -f
     class main

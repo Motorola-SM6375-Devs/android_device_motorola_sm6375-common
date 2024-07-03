@@ -1,3 +1,4 @@
+libportrait_repair_ppl3_ocl.so
 libqti-perfd-client.so
 libadsprpc.so
 libcdsprpc.so
@@ -10,3 +11,7 @@ libqmi_common_so.so
 libqmiservices.so
 libqmimotext.so
 libiqi_bridge.so
+liblowlight_ai_portrait.arcsoft.so
+
+libBSTbase_share.so
+libBSTSWAD.so

@@ -12,7 +12,7 @@ on moto-charger
     start vendor.thermal-com
     start system_suspend
 
-    # Enable only CPU core 0 to keep current drain to a minimum
+     # Enable only CPU core 0 to keep current drain to a minimum
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu1/online 0
@@ -22,7 +22,7 @@ on moto-charger
     write /sys/devices/system/cpu/cpu5/online 0
     write /sys/devices/system/cpu/cpu6/online 0
     write /sys/devices/system/cpu/cpu7/online 0
-
+     
 service vendor.thermal-com /vendor/bin/thermal-engine --minimode
     class charger
     user root

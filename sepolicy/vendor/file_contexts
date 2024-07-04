@@ -46,12 +46,10 @@
 /(vendor|system/vendor)/bin/egis_ident                  u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/fpc_ident                   u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/goodix_ident                u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.dubai           u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.bangkk          u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-ets              u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-fpc              u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.berlin          u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.berlna          u:object_r:hal_fingerprint_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xpeng           u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.fogos           u:object_r:hal_fingerprint_default_exec:s0
 /data/vendor/.fps(/.*)?                                 u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/egis(/.*)?                                 u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/fpc(/.*)?                                  u:object_r:fingerprint_vendor_data_file:s0
@@ -63,20 +61,11 @@
 # IFAA
 /(vendor|system/vendor)/bin/hw/vendor\.zui\.hardware\.ifaa@1\.0-service                 u:object_r:hal_ifaa_default_exec:s0
 
-# Lights
-/(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.berlna                                         u:object_r:hal_light_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.xpeng                                          u:object_r:hal_light_default_exec:s0
-
 # LiveDisplay
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.motorola_lahaina    u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.motorola_holi       u:object_r:hal_lineage_livedisplay_qti_exec:s0
 
 # Motobox
 /(vendor|system/vendor)/bin/motobox                     u:object_r:vendor_motobox_exec:s0
-
-# NFC
-/(vendor|system/vendor)/bin/STFlashTool                                       u:object_r:stflashtool_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc@1\.2-service\.st        u:object_r:hal_nfc_default_exec:s0
-/dev/st21nfc                                                                   u:object_r:nfc_device:s0
 
 # Radio
 /data/vendor/misc/cutback(/.*)?                         u:object_r:cutback_data_file:s0

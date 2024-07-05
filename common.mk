@@ -101,15 +101,27 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaudiopreprocessing \
+    libaudioroute \
+    libbatterylistener \
     libbundlewrapper \
+    libcirrusspkrprot \
+    libcomprcapture \
     libdownmix \
     libdynproc \
     libeffectproxy \
+    libexthwplugin \
+    libhdmiedid \
+    libhfp \
     libldnhncr \
+    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libreverbwrapper \
+    libsndmonitor \
+    libspkrprot \
+    libtinycompress \
     libvisualizer \
+    libvolumelistener \
     sound_trigger.primary.holi
 
 PRODUCT_COPY_FILES += \
@@ -141,6 +153,7 @@ PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     libexif.vendor:64 \
     libgui_vendor \
+    libgui_shim_vendor \
     libyuv.vendor:64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
@@ -149,6 +162,7 @@ WITH_LINEAGE_CHARGER := false
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.common-V1-ndk_platform.vendor \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
@@ -158,6 +172,7 @@ PRODUCT_PACKAGES += \
     gralloc.default \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
+    libmemutils \
     libqdMetaData \
     libqdMetaData.system \
     libsdmcore \
@@ -175,7 +190,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor
+    vendor.qti.hardware.display.mapper@4.0.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.0.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.1.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.2.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.3.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -305,13 +324,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor \
+    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxG711Enc \
     libOmxQcelp13Enc \
-    libstagefrighthw
+    libstagefrighthw \
+    libstagefright_softomx.vendor \
+    libstagefright_softomx_plugin.vendor
 
 # Perf
 PRODUCT_PACKAGES += \
@@ -380,6 +402,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libjson \
     libjsoncpp.vendor \
+    libcurl.vendor \
     libnetutils.vendor:64 \
     libqti_vndfwk_detect \
     libqti_vndfwk_detect.vendor \
@@ -401,11 +424,13 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0.vendor \
     android.system.net.netd@1.1.vendor \
+    libion.vendor \
     libprotobuf-cpp-full \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat \
     librmnetctl \
-    libsysutils.vendor
+    libsysutils.vendor \
+    libxml2
 
 # Sensors
 PRODUCT_PACKAGES += \

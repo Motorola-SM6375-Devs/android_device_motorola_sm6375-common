@@ -12,6 +12,7 @@ genfscon sysfs /devices/platform/soc/soc:mmi,discrete-charging/power_supply/batt
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/iio:device6/name   u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/iio:device7/name   u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/4c90000.i2c/i2c-2/2-006a u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:mmi_chrg_manager/power_supply/mmi_chrg_manager/charge_control_limit_max u:object_r:vendor_sysfs_battery_supply:s0
 
 # Input Devices
 genfscon sysfs /devices/virtual/input                                           u:object_r:vendor_sysfs_input:s0

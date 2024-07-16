@@ -58,6 +58,62 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.data</name>
+       <interface>
+           <name>IRadioData</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.ims</name>
+       <interface>
+           <name>IRadioIms</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.messaging</name>
+       <interface>
+           <name>IRadioMessaging</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.modem</name>
+       <interface>
+           <name>IRadioModem</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.network</name>
+       <interface>
+           <name>IRadioNetwork</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.sim</name>
+       <interface>
+           <name>IRadioSim</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+       <name>android.hardware.radio.voice</name>
+       <interface>
+           <name>IRadioVoice</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.uwb</name>
         <version>1.0</version>

@@ -1,1 +1,4 @@
 allow system_server mot_system_service:service_manager add;
+
+allow system_server sysfs:dir { open read };
+allow system_server sysfs:file { getattr };

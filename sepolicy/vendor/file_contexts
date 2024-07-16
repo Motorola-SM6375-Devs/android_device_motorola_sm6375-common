@@ -94,6 +94,7 @@
 /(vendor|system/vendor)/bin/load_touch\.sh                      u:object_r:vendor_qti_init_shell_exec:s0
 /(vendor|system/vendor)/bin/init\.mmi\.laser\.sh                u:object_r:vendor_mmi_laser_exec:s0
 /(vendor|system/vendor)/bin/init\.mmi\.touch\.sh                u:object_r:vendor_init_touch_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-goodixservice	  u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/init\.oem\.(fingerprint2|fingerprint\.overlay)\.sh                    u:object_r:vendor_init_fingerprint_exec:s0
 /(vendor|system/vendor)/bin/init\.oem\.hw\.sh                   u:object_r:vendor_init_hw_exec:s0
 

@@ -108,37 +108,6 @@ on enable-low-power
     write /proc/sys/kernel/sched_group_downmigrate 95
     write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
 
-    # Enable bus-dcvs
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/governor "bw_hwmon"
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/polling_interval 50
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/min_freq 762
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/mbps_zones "762 1144 1720 2086 2597 2929 3879 5161 5931"
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/sample_ms 4
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/io_percent 50
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/hist_memory 20
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/hyst_length 10
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/guard_band_mbps 0
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/up_scale 250
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/idle_mbps 1600
-
-    # Enable mem_latency governor for DDR scaling
-    write /sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/mem_latency/ratio_ceil 400
-
-    write /sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-lat/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-lat/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-lat/mem_latency/ratio_ceil 400
-
-    # Enable mem_latency governor for L3 scaling
-    write /sys/class/devfreq/fd90100.qcom,cpu0-cpu-l3-lat/governor "mem_latency"
-    write /sys/class/devfreq/fd90100.qcom,cpu0-cpu-l3-lat/polling_interval 10
-    write /sys/class/devfreq/fd90100.qcom,cpu0-cpu-l3-lat/mem_latency/ratio_ceil 400
-
-    write /sys/class/devfreq/fd90100.qcom,cpu6-cpu-l3-lat/governor "mem_latency"
-    write /sys/class/devfreq/fd90100.qcom,cpu6-cpu-l3-lat/polling_interval 10
-    write /sys/class/devfreq/fd90100.qcom,cpu6-cpu-l3-lat/mem_latency/ratio_ceil 400
-
     # Set cpuset parameters
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-3

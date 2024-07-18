@@ -252,6 +252,46 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUDDRLatLittleMinFreq",
+      "Path": "/sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/min_freq",
+      "Values": [
+        "7980",
+        "3879",
+        "762"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUDDRLatBigMinFreq",
+      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-lat/min_freq",
+      "Values": [
+        "7980",
+        "3879",
+        "762"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUDDRLatfloorLittleMinFreq",
+      "Path": "/sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-latfloor/min_freq",
+      "Values": [
+        "7980",
+        "3879",
+        "762"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUDDRLatfloorBigMinFreq",
+      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-latfloor/min_freq",
+      "Values": [
+        "7980",
+        "3879",
+        "762"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "PowerHALMainState",
       "Path": "vendor.powerhal.state",
       "Values": [
@@ -374,6 +414,30 @@
       "Value": "7980"
     },
     {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUDDRLatLittleMinFreq",
+      "Duration": 0,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUDDRLatBigMinFreq",
+      "Duration": 0,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUDDRLatfloorLittleMinFreq",
+      "Duration": 0,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUDDRLatfloorBigMinFreq",
+      "Duration": 0,
+      "Value": "7980"
+    },
+    {
       "PowerHint": "INTERACTIVE",
       "Node": "SchedBusyHystNs",
       "Duration": 0,
@@ -436,6 +500,30 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWMinFreq",
+      "Duration": 5000,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUDDRLatLittleMinFreq",
+      "Duration": 5000,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUDDRLatBigMinFreq",
+      "Duration": 5000,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUDDRLatfloorLittleMinFreq",
+      "Duration": 5000,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUDDRLatfloorBigMinFreq",
       "Duration": 5000,
       "Value": "7980"
     },

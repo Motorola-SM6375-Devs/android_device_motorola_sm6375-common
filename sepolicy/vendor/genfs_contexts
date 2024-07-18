@@ -33,6 +33,20 @@ genfscon proc /hw                                                               
 genfscon proc /sys/kernel/sched_lib_name                                        u:object_r:proc_sched_lib_mask_cpuinfo:s0
 genfscon proc /sys/kernel/sched_lib_mask_force                                  u:object_r:proc_sched_lib_mask_cpuinfo:s0
 genfscon sysfs /devices/platform/soc/a94000.i2c/i2c-2/2-0049/double_click       u:object_r:vendor_sysfs_dt2w:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable    u:object_r:vendor_sysfs_scsi_host:s0
+genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/idle_encoder_mask                        u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/idle_state                               u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/idle_timeout_ms                          u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/early_wakeup        u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/5900000.qcom,kgsl-3d0                                          u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw                                        u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu0-cpu-ddr-lat                                      u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,cpu6-cpu-ddr-lat                                      u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/fd90100.qcom,cpu0-cpu-l3-lat                                   u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/fd90100.qcom,cpu6-cpu-l3-lat                                   u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display                                           u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,gpubw                                                 u:object_r:vendor_sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,gpubw/devfreq                                         u:object_r:vendor_sysfs_msm_subsys:s0
 
 # RTC
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pmk8350@0:rtc/rtc/rtc0 u:object_r:sysfs_rtc:s0

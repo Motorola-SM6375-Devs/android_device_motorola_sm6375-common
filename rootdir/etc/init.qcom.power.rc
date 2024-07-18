@@ -147,6 +147,11 @@ on enable-low-power
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/restricted/cpus 0-3
 
+    # Setup final cpu.uclamp
+    write /dev/cpuctl/background/cpu.uclamp.max 50
+    write /dev/cpuctl/system-background/cpu.uclamp.max 50
+    write /dev/cpuctl/dex2oat/cpu.uclamp.max 60
+
     # Turn on sleep modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 

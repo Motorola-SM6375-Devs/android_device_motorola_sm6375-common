@@ -19,7 +19,9 @@
         "9999999",
         "1324800",
         "1113600",
-        "691200"
+        "691200",
+        "576000",
+        "300000"
       ],
       "ResetOnInit": true
     },
@@ -369,7 +371,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 0,
-      "Value": "6881"
+      "Value": "7980"
     },
     {
       "PowerHint": "INTERACTIVE",

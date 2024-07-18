@@ -20,7 +20,8 @@ cc_binary {
     vintf_fragments: ["android.hardware.power-service.moto_sm6375.xml"],
     vendor: true,
     shared_libs: [
-        "android.hardware.power-V1-ndk_platform",
+        "android.hardware.power-V2-ndk_platform",
+        "libadpf-pixel",
         "libbase",
         "libcutils",
         "liblog",

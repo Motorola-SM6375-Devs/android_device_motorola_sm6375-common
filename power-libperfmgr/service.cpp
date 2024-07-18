@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power-service.moto_sm6375-libperfmgr"
+#define LOG_TAG "powerhal-libperfmgr"
 
 #include <thread>
 

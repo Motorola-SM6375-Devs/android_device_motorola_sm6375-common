@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power-service.pixel-libperfmgr"
+#define LOG_TAG "android.hardware.power-service.moto_sm6375-libperfmgr"
 
 #include "Power.h"
 
@@ -25,16 +25,16 @@
 using aidl::android::hardware::power::impl::pixel::Power;
 
 int main() {
-    LOG(INFO) << "Power HAL AIDL Service for Pixel is starting.";
+    LOG(INFO) << "Power HAL AIDL Service for moto_sm6375 is starting.";
     ABinderProcess_setThreadPoolMaxThreadCount(0);
     std::shared_ptr<Power> pw = ndk::SharedRefBase::make<Power>();
 
     const std::string instance = std::string() + Power::descriptor + "/default";
     binder_status_t status = AServiceManager_addService(pw->asBinder().get(), instance.c_str());
     CHECK(status == STATUS_OK);
-    LOG(INFO) << "Power HAL AIDL Service for Pixel is started.";
+    LOG(INFO) << "Power HAL AIDL Service for moto_sm6375 is started.";
 
     ABinderProcess_joinThreadPool();
-    LOG(ERROR) << "Power HAL AIDL Service for Pixel died.";
+    LOG(ERROR) << "Power HAL AIDL Service for moto_sm6375 died.";
     return EXIT_FAILURE;  // should not reach
 }

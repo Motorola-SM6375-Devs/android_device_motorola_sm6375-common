@@ -332,9 +332,6 @@ on post-fs-data
     chmod 0770 /data/vendor/fm
 
     mkdir /data/vendor/secure_element 0777 system system
-    
-    #Create IOP  deamon related dirs
-    mkdir /data/vendor/iop 0700 root system
 
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
@@ -380,13 +377,6 @@ on post-fs-data
 
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
-    
-service iop /system/vendor/bin/iop
-    class main
-    user root
-    group root
-    disabled
-    socket iop seqpacket 0666 root system
 
 on property:ro.vendor.hw.dualsim=true
    setprop persist.vendor.radio.multisim.config dsds

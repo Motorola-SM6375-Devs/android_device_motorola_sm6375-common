@@ -86,7 +86,7 @@
 
 # Touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.bangkk                        u:object_r:hal_lineage_touch_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.xpeng                         u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.fogos                         u:object_r:hal_lineage_touch_default_exec:s0
 /sys/devices/platform/soc/a94000\.spi/spi_master/spi0/spi0\.0/touchscreen/(primary|NVT-ts)(/.*)?  u:object_r:vendor_sysfs_touchpanel:s0
 /sys/devices/platform/soc/998000\.spi/spi_master/spi0/spi0\.0/touchscreen/(primary|NVT-ts)(/.*)?  u:object_r:vendor_sysfs_touchpanel:s0
 

@@ -6,10 +6,10 @@
       "Values": [
         "9999999",
         "1708800",
-        "1651200",
-        "1516800"
+        "576000",
+        "300000"
       ],
-      "DefaultIndex": 3,
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -17,13 +17,14 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
+        "1708800",
         "1324800",
         "1113600",
         "691200",
         "576000",
         "300000"
       ],
-      "DefaultIndex": 5,
+      "DefaultIndex": 6,
       "ResetOnInit": true
     },
     {
@@ -53,7 +54,7 @@
         "1900800",
         "1516800"
       ],
-      "DefaultIndex": 3,
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -61,10 +62,13 @@
       "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
+        "2054400",
         "1651200",
+        "1228800",
         "691200",
         "0"
       ],
+      "DefaultIndex": 5,
       "ResetOnInit": true
     },
     {
@@ -90,19 +94,13 @@
       "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
       "Values": [
         "0",
-        "50",
-        "100"
+        "692",
+        "308",
+        "232",
+        "154",
+        "78"
       ],
       "DefaultIndex": 0,
-      "ResetOnInit": true
-    },
-    {
-      "Name": "UclampTALatency",
-      "Path": "/dev/cpuctl/top-app/cpu.uclamp.latency_sensitive",
-      "Values": [
-        "1",
-        "0"
-      ],
       "ResetOnInit": true
     },
     {
@@ -110,88 +108,29 @@
       "Path": "/dev/cpuctl/foreground/cpu.uclamp.min",
       "Values": [
         "0",
-        "100"
+        "159"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
-      "Name": "SchedPreferSpread",
-      "Path": "/proc/sys/kernel/sched_prefer_spread",
-      "Values": [
-        "2",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "SchedBusyHystNs",
-      "Path": "/proc/sys/kernel/sched_busy_hyst_ns",
-      "Values": [
-        "99000000",
-        "3000000",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "SchedBusyHystEnableCPUs",
-      "Path": "/proc/sys/kernel/sched_busy_hysteresis_enable_cpus",
-      "Values": [
-        "192",
-        "15",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "SchedMinTaskUtilForBoost",
-      "Path": "/proc/sys/kernel/sched_min_task_util_for_boost",
-      "Values": [
-        "0",
-        "51"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "SchedMinTaskUtilForColoc",
-      "Path": "/proc/sys/kernel/sched_min_task_util_for_colocation",
-      "Values": [
-        "0",
-        "35"
-      ],
-      "ResetOnInit": true
-    },
-    {
       "Name": "GPUMaxFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/max_pwrlevel",
+      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
       "Values": [
-        "0",
-        "1",
-        "2"
+        "840000000",
+        "650000000",
+        "266000000"
       ],
-      "Comments": [
-        "0 => 840000000",
-        "1 => 650000000",
-        "2 => 266000000"
-      ],
-      "DefaultIndex": 2,
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
       "Name": "GPUMinFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/min_pwrlevel",
+      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
-        "0",
-        "1",
-        "2",
-        "3"
-      ],
-      "Comments": [
-        "0 => 840000000",
-        "1 => 650000000",
-        "2 => 490000000",
-        "3 => 266000000"
+        "840000000",
+        "650000000",
+        "266000000"
       ],
       "ResetOnInit": true
     },
@@ -218,7 +157,7 @@
       "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
       "Values": [
         "10000",
-        "58"
+        "80"
       ],
       "ResetOnInit": true
     },
@@ -263,9 +202,7 @@
       "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/min_freq",
       "Values": [
         "7980",
-        "6881",
-        "5931",
-        "3879",
+        "5161",
         "762"
       ],
       "ResetOnInit": true
@@ -366,67 +303,36 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1651200"
+      "Value": "1708800"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "1"
+      "Value": "650000000"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Type": "EndHint",
+      "Value": "DISABLE_TA_BOOST"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1651200"
+      "Value": "2054400"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "1113600"
+      "Value": "1708800"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "50"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "UclampTALatency",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "SchedPreferSpread",
-      "Duration": 0,
-      "Value": "2"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "SchedBusyHystNs",
-      "Duration": 0,
-      "Value": "99000000"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "SchedBusyHystEnableCPUs",
-      "Duration": 0,
-      "Value": "192"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "SchedMinTaskUtilForBoost",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "SchedMinTaskUtilForColoc",
-      "Duration": 0,
-      "Value": "0"
+      "Value": "78"
     },
     {
       "PowerHint": "INTERACTION",
@@ -450,7 +356,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 0,
-      "Value": "7980"
+      "Value": "5161"
     },
     {
       "PowerHint": "INTERACTION",
@@ -513,16 +419,9 @@
       "Value": "20000"
     },
     {
-      "PowerHint": "INTERACTIVE",
-      "Node": "SchedBusyHystNs",
-      "Duration": 0,
-      "Value": "3000000"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "SchedBusyHystEnableCPUs",
-      "Duration": 0,
-      "Value": "15"
+      "PowerHint": "LAUNCH",
+      "Type": "EndHint",
+      "Value": "DISABLE_TA_BOOST"
     },
     {
       "PowerHint": "LAUNCH",
@@ -545,14 +444,14 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampTAMin",
-      "Duration": 3000,
-      "Value": "50"
+      "Duration": 5000,
+      "Value": "692"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampFgMin",
-      "Duration": 3000,
-      "Value": "100"
+      "Duration": 5000,
+      "Value": "159"
     },
     {
       "PowerHint": "LAUNCH",
@@ -660,13 +559,13 @@
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "0"
+      "Value": "840000000"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "0"
+      "Value": "840000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -678,25 +577,41 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "1"
+      "Value": "650000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMaxFreq",
       "Duration": 0,
+      "Value": "840000000"
+    },
+    {
+      "PowerHint": "DISABLE_TA_BOOST",
+      "Node": "UclampTAMin",
+      "Duration": 0,
       "Value": "0"
     },
     {
-      "PowerHint": "Flipendo",
-      "Node": "CPULittleClusterMaxFreq",
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "1651200"
+      "Value": "300000"
     },
     {
-      "PowerHint": "Flipendo",
-      "Node": "CPUBigClusterMaxFreq",
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1516800"
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Type": "DoHint",
+      "Value": "DISABLE_TA_BOOST"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Type": "EndHint",
+      "Value": "INTERACTION"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",

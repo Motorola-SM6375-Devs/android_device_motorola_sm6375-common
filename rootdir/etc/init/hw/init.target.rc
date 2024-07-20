@@ -114,6 +114,10 @@ on init && property:ro.boot.mode=charger
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
 
+on property:sys.boot_completed=1
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
 on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller 4e00000.dwc3

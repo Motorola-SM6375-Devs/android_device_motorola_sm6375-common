@@ -6,8 +6,5 @@ vendor_internal_prop(vendor_mot_hw_prop);
 vendor_internal_prop(vendor_mot_touch_prop);
 vendor_internal_prop(vendor_mot_nfc_prop);
 
-# Power
-vendor_internal_prop(vendor_power_prop)
-
 # Thermal engine
 vendor_internal_prop(vendor_thermal_prop)

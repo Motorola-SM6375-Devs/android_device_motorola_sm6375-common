@@ -1,5 +1,4 @@
 allow hal_power_default {
-  cgroup
   vendor_sysfs_devfreq
   vendor_sysfs_dt2w
   vendor_sysfs_input
@@ -9,7 +8,6 @@ allow hal_power_default {
 }:dir search;
 
 allow hal_power_default {
-  cgroup
   proc
   proc_sched
   vendor_sysfs_devfreq
@@ -31,6 +29,3 @@ allow hal_power_default vendor_latency_device:chr_file rw_file_perms;
 
 # Rule for hal_power_default to access graphics composer process
 unix_socket_connect(hal_power_default, vendor_pps, hal_graphics_composer_default);
-
-# To get/set powerhal state property
-set_prop(hal_power_default, vendor_power_prop)

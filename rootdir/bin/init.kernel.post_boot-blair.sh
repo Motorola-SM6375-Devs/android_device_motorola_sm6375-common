@@ -110,3 +110,131 @@ function configure_memory_parameters() {
 	#Spawn 2 kswapd threads which can help in fast reclaiming of pages
 	echo 2 > /proc/sys/vm/kswapd_threads
 }
+
+# Core control parameters for silver
+echo 0 0 0 0 1 1 > /sys/devices/system/cpu/cpu0/core_ctl/not_preferred
+echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+echo 60 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
+echo 40 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
+echo 100 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
+echo 8 > /sys/devices/system/cpu/cpu0/core_ctl/task_thres
+
+# Enable Core control for Silver
+echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/enable
+
+# Disable Core control on gold
+echo 0 > /sys/devices/system/cpu/cpu6/core_ctl/enable
+
+# Setting b.L scheduler parameters
+echo 65 > /proc/sys/kernel/sched_downmigrate
+echo 71 > /proc/sys/kernel/sched_upmigrate
+echo 85 > /proc/sys/kernel/sched_group_downmigrate
+echo 100 > /proc/sys/kernel/sched_group_upmigrate
+echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
+echo 0 > /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus
+echo 0 > /proc/sys/kernel/sched_busy_hysteresis_enable_cpus
+echo 5 > /proc/sys/kernel/sched_ravg_window_nr_ticks
+
+# disable unfiltering
+echo 20000000 > /proc/sys/kernel/sched_task_unfilter_period
+
+# cpuset parameters
+echo 0-5 > /dev/cpuset/background/cpus
+echo 0-5 > /dev/cpuset/system-background/cpus
+
+# Turn off scheduler boost at the end
+echo 0 > /proc/sys/kernel/sched_boost
+
+# configure governor settings for silver cluster
+echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+echo 1113600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
+echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+
+# configure governor settings for gold cluster
+echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
+echo 0 > /sys/devices/system/cpu/cpufreq/policy6/schedutil/down_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpufreq/policy6/schedutil/up_rate_limit_us
+echo 1228800 > /sys/devices/system/cpu/cpufreq/policy6/schedutil/hispeed_freq
+echo 691200 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+
+# Colocation V3 settings
+echo 680000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/rtg_boost_freq
+echo 0 > /sys/devices/system/cpu/cpufreq/policy6/schedutil/rtg_boost_freq
+echo 51 > /proc/sys/kernel/sched_min_task_util_for_boost
+echo 35 > /proc/sys/kernel/sched_min_task_util_for_colocation
+
+# sched_load_boost as -6 is equivalent to target load as 85. It is per cpu tunable.
+echo -6 > /sys/devices/system/cpu/cpu6/sched_load_boost
+echo -6 > /sys/devices/system/cpu/cpu7/sched_load_boost
+echo 85 > /sys/devices/system/cpu/cpufreq/policy6/schedutil/hispeed_load
+
+# configure input boost settings
+echo "0:1113600" > /sys/devices/system/cpu/cpu_boost/input_boost_freq
+echo 120 > /sys/devices/system/cpu/cpu_boost/input_boost_ms
+
+# Enable bus-dcvs
+for device in /sys/devices/platform/soc
+do
+	for cpubw in $device/*cpu-cpu-ddr-bw/devfreq/*cpu-cpu-ddr-bw
+	do
+		cat $cpubw/available_frequencies | cut -d " " -f 1 > $cpubw/min_freq
+		echo "bw_hwmon" > $cpubw/governor
+		echo "762 1144 1720 2086 2597 2929 3879 5161 5931 6881 7980" > $cpubw/bw_hwmon/mbps_zones
+		echo 4 > $cpubw/bw_hwmon/sample_ms
+		echo 68 > $cpubw/bw_hwmon/io_percent
+		echo 20 > $cpubw/bw_hwmon/hist_memory
+		echo 0 > $cpubw/bw_hwmon/hyst_length
+		echo 80 > $cpubw/bw_hwmon/down_thres
+		echo 0 > $cpubw/bw_hwmon/guard_band_mbps
+		echo 250 > $cpubw/bw_hwmon/up_scale
+		echo 1600 > $cpubw/bw_hwmon/idle_mbps
+		echo 40 > $cpubw/polling_interval
+	done
+
+	# configure compute settings for silver latfloor
+	for latfloor in $device/*cpu0-cpu*latfloor/devfreq/*cpu0-cpu*latfloor
+	do
+		cat $latfloor/available_frequencies | cut -d " " -f 1 > $latfloor/min_freq
+		echo 8 > $latfloor/polling_interval
+	done
+
+	# configure compute settings for gold latfloor
+	for latfloor in $device/*cpu6-cpu*latfloor/devfreq/*cpu6-cpu*latfloor
+	do
+		cat $latfloor/available_frequencies | cut -d " " -f 1 > $latfloor/min_freq
+		echo 8 > $latfloor/polling_interval
+	done
+
+	# configure mem_latency settings for DDR scaling
+	for memlat in $device/*lat/devfreq/*lat
+	do
+		cat $memlat/available_frequencies | cut -d " " -f 1 > $memlat/min_freq
+		echo 8 > $memlat/polling_interval
+		echo 400 > $memlat/mem_latency/ratio_ceil
+	done
+
+	#Gold CPU6 L3 ratio ceil
+	for l3gold in $device/*cpu6-cpu-l3-lat/devfreq/*cpu6-cpu-l3-lat
+	do
+		echo 4000 > $l3gold/mem_latency/ratio_ceil
+		echo 25000 > $l3gold/mem_latency/wb_filter_ratio
+		echo 60 > $l3gold/mem_latency/wb_pct_thres
+	done
+
+	#Gold CPU7 L3 ratio ceil
+	for l3gold in $device/*cpu7-cpu-l3-lat/devfreq/*cpu7-cpu-l3-lat
+	do
+		echo 4000 > $l3gold/mem_latency/ratio_ceil
+		echo 25000 > $l3gold/mem_latency/wb_filter_ratio
+		echo 60 > $l3gold/mem_latency/wb_pct_thres
+	done
+
+done
+
+echo N > /sys/module/lpm_levels/parameters/sleep_disabled
+
+configure_memory_parameters
+
+setprop vendor.post_boot.parsed 1

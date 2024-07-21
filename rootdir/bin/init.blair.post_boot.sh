@@ -23,3 +23,4 @@ echo 128 > /sys/block/dm-9/queue/read_ahead_kb
 # cpuset
 echo 0-1 > /dev/cpuset/background/cpus
 echo 0-3 > /dev/cpuset/system-background/cpus
+echo 0-3 > /dev/cpuset/restricted/cpus

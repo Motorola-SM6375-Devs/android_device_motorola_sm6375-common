@@ -3,6 +3,9 @@ genfscon sysfs /devices/platform/egis_input                         u:object_r:v
 genfscon sysfs /devices/platform/egis_input/navigation_enable       u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/egis_input/navigation_event        u:object_r:vendor_sysfs_fingerprint:s0
 
+# Graphics
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-    u:object_r:vendor_sysfs_sde_crtc:s0
+
 # Health
 genfscon sysfs /devices/platform/soc/soc:mmi,charger/power_supply/mmi_battery      u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/power_supply/battery u:object_r:vendor_sysfs_battery_supply:s0

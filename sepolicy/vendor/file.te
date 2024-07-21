@@ -13,6 +13,9 @@ type cutback_socket, file_type;
 type vendor_persist_egis_file, file_type, vendor_persist_type;
 type vendor_persist_fps_file, file_type, vendor_persist_type;
 
+# Graphics
+type vendor_sysfs_sde_crtc, fs_type, sysfs_type;
+
 # Input Devices
 type vendor_sysfs_input, sysfs_type, fs_type;
 

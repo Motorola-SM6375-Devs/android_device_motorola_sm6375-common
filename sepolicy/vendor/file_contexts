@@ -61,6 +61,9 @@
 # IFAA
 /(vendor|system/vendor)/bin/hw/vendor\.zui\.hardware\.ifaa@1\.0-service                 u:object_r:hal_ifaa_default_exec:s0
 
+# Init
+/vendor/bin/init.blair.post_boot.sh          u:object_r:vendor_qti_init_shell_exec:s0
+
 # Label read_ahead_kb in /data partition
 /sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/read_ahead_kb u:object_r:vendor_sysfs_scsi_host:s0
 

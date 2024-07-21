@@ -23,3 +23,5 @@ recovery_only(`
 ')
 
 allow init vendor_sysfs_vibrator:file create_file_perms;
+
+allow init vendor_sysfs_scsi_host:file w_file_perms;

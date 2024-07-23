@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from fogos_g-user 14 U1UG34M.23-82-2 e82316 release-keys
+# All unpinned blobs are extracted from fogos_g-user 14 U1UGS34M.23-82-2-2 0c9cb9 release-keys
 
 # ADSP
 vendor/bin/adsprpcd
@@ -513,15 +513,11 @@ system_ext/lib/libmmparser_lite.so
 system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
 vendor/bin/hw/vendor.qti.media.c2@1.0-service
-vendor/bin/init.qti.media.sh
-vendor/etc/init/init.qti.media.rc
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
-vendor/etc/media_blair/video_system_specs.json
-vendor/etc/media_holi/video_system_specs.json
 vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
 vendor/etc/video_system_specs.json
-vendor/etc/vintf/manifest/vendor.dolby.media.c2@1.0-service.xml
+-vendor/etc/vintf/manifest/vendor.dolby.media.c2@1.0-service.xml
 vendor/lib/libmmosal.so
 vendor/lib/libqcodec2_base.so
 vendor/lib/libqcodec2_basecodec.so

@@ -19,6 +19,7 @@ allow hal_power_default {
   vendor_sysfs_kgsl
   vendor_sysfs_msm_subsys
   vendor_sysfs_scsi_host
+  vendor_sysfs_sensors
   vendor_sysfs_touchpanel
 }:{
   file

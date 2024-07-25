@@ -35,6 +35,9 @@
 /sys/devices/virtual/input/input[0-9]+/offset           u:object_r:vendor_sysfs_laser:s0
 /sys/devices/virtual/input/input[0-9]+/xtalk            u:object_r:vendor_sysfs_laser:s0
 
+# Capsense
+/(vendor|system/vendor)/bin/capsense_reset                                 u:object_r:capsense_reset_exec:s0
+
 # Charger
 /data/vendor/chargeonly(/.*)?                           u:object_r:chargeonly_vendor_data_file:s0
 /(mnt/vendor/persist|persist)/chargeonly(/.*)?          u:object_r:persist_chargeonly_file:s0

@@ -1,0 +1,4 @@
+r_dir_file(vendor_hvdcp, vendor_sysfs_battery_supply)
+rw_dir_file(vendor_hvdcp, sysfs)
+allow vendor_hvdcp sysfs_batteryinfo:dir search;
+set_prop(vendor_hvdcp, ctl_stop_prop)

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (c) 2018-2020 Qualcomm Technologies, Inc.
+    All Rights Reserved.
+    Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+    Not a Contribution.
+
+    Copyright (C) 2012-2018 The Linux Foundation. All rights reserved.
+    Copyright (C) 2012-2013 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!--
+"performance-point"
+    Vendor-guaranteed performance advertised to the applications
+        <Limit name="performance-point-widthxheight" value="fps" />
+
+    -For each of the resolutions, the advertised fps is the max supported,
+    with HW-friendly color format and considering video-only.
+    -Performance for any intermediate resolution will be that of the
+    next-higher-advertised-resolution.
+
+    standard sizes: 480p/576p (SD), 720p (HD), 1080p (FHD), 2160p (UHD)
+    standard frame rates: 24, 25, 30, 48+, 50, 60, 100*, 120*, 200*, 240* fps
+        * HD+ only
+        + SD only
+    - All supported standard performance points are listed (unless they are
+    covered by another listed standard performance point)
+    - Non-standard performance points are listed along with all the standard
+    performance points covered by them.
+-->
+
+<!--
+  Holi Non-Secure decoder capabilities
+ (MB is defined as 16x16)
+
+  _______________________________________________________
+ | Codec       |  W        H    fps     Mbps     MB/s    |
+ |_____________|_________________________________________|
+ | h264        | 1920    1088    60      60     489600   |
+ | hevc        | 1920    1080    60      60     489600   |
+ | vp9         | 1920    1088    60      60     489600   |
+ |_____________|_________________________________________|
+
+ Secure decoder capabilities
+ (MB is defined as 16x16)
+
+ _____________________________________________________
+ | Codec    |   W      H     fps     Mbps      MB/s   |
+ |__________|_________________________________________|
+ | h264     | 1920    1088    60      35      489600  |
+ | vp9      | 1920    1088    60      35      489600  |
+ | hevc     | 1920    1088    60      35      489600  |
+ |__________|_________________________________________|
+
+
+ Non-Secure encoder capabilities (Secure not supported)
+ (MB is defined as 16x16)
+
+ ______________________________________________________
+ | Codec    | W       H      fps     Mbps     MB/s    |
+ |__________|_________________________________________|
+ | h264     | 1920    1088    60      60     489600   |
+ | hevc     | 1920    1088    60      60     489600   |
+ |__________|_________________________________________|
+-->
+
+<MediaCodecs>
+    <Settings>
+        <Setting name="max-video-encoder-input-buffers" value="11" />
+    </Settings>
+    <Settings>
+        <Variant name="slow-cpu" enabled="true" />
+    </Settings>
+    <Encoders>
+        <MediaCodec name="c2.android.hevc.encoder" type="video/hevc" update="true" variant="slow-cpu">
+            <!-- profiles and levels:  ProfileMain : MainTierLevel51 -->
+            <Limit name="size" min="2x2" max="512x512" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="8x8" />
+            <Limit name="block-count" range="1-4096" /> <!-- max 512x512 -->
+            <Limit name="blocks-per-second" range="1-122880" />
+            <Limit name="frame-rate" range="1-120" />
+            <Limit name="bitrate" range="1-10000000" />
+            <Limit name="complexity" range="0-10"  default="0" />
+            <Limit name="quality" range="0-100"  default="80" />
+            <Feature name="bitrate-modes" value="VBR,CBR,CQ" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.vp9.encoder" type="video/x-vnd.on2.vp9" update="true" variant="slow-cpu">
+            <!-- profiles and levels:  ProfileMain : Level_Version0-3 -->
+            <Limit name="size" min="2x2" max="2048x2048" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <!-- 2016 devices can encode at about 8fps at this block count -->
+            <Limit name="block-count" range="1-3600" /> <!-- max 1280x720 -->
+            <Limit name="bitrate" range="1-40000000" />
+            <Feature name="bitrate-modes" value="VBR,CBR" />
+        </MediaCodec>
+    </Encoders>
+    <Decoders>
+        <MediaCodec name="c2.android.gsm.decoder" type="audio/gsm" update="true" enabled="true">
+            <Alias name="OMX.google.gsm.decoder" />
+            <Limit name="channel-count" max="1" />
+            <Limit name="sample-rate" ranges="8000" />
+            <Limit name="bitrate" range="13000" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.av1.decoder" type="video/av01" update="true" variant="slow-cpu">
+            <Limit name="size" min="96x96" max="1920x1080" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="24" max="2073600" />
+            <Limit name="bitrate" range="1-120000000" />
+            <Limit name="frame-rate" range="1-60" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+    </Decoders>
+</MediaCodecs>

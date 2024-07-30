@@ -507,7 +507,7 @@ vendor/lib64/libgcs.so
 vendor/lib64/liblistensoundmodel2.so
 vendor/lib64/libmulawdec.so
 
-# Media
+# Media - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
 system_ext/lib/libmmosal.so
 system_ext/lib/libmmparser_lite.so
 system_ext/lib64/libmmosal.so
@@ -528,18 +528,14 @@ vendor/lib/libqcodec2_utils.so
 vendor/lib/libqcodec2_v4l2codec.so
 vendor/lib64/libmmosal.so
 
-# Media configs
-vendor/etc/media_blair_lite/video_system_specs.json
+# Media configs - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
 vendor/etc/media_blair/video_system_specs.json
-vendor/etc/media_codecs_blair_lite.xml
-vendor/etc/media_codecs_performance_blair_lite.xml
 vendor/etc/media_holi/video_system_specs.json
-vendor/etc/media_profiles_blair_lite.xml
 
 # OEM
 vendor/bin/motobox
 
-# OMX
+# OMX - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
@@ -557,7 +553,6 @@ vendor/lib/libOmxG711Dec.so
 vendor/lib/libOmxMpeghDecSw.so
 vendor/lib/libOmxMpeghEncSw.so
 vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libdsd2pcm.so
 vendor/lib64/libAlacSwDec.so

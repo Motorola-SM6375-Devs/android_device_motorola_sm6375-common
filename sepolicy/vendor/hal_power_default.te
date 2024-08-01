@@ -26,6 +26,7 @@ allow hal_power_default {
   lnk_file
 } rw_file_perms;
 
+allow hal_power_default property_socket:sock_file write;
 allow hal_power_default vendor_latency_device:chr_file rw_file_perms;
 
 # Allow Power HAL to read and write to sde-crtc-*

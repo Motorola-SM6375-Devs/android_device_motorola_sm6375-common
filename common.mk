@@ -152,7 +152,6 @@ PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     libexif.vendor:64 \
     libgui_vendor \
-    libgui_shim_vendor \
     libyuv.vendor:64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 

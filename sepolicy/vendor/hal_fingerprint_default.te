@@ -30,3 +30,6 @@ allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager find;
 typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
 allow hal_fingerprint_default fingerprintd_data_file:dir { rw_dir_perms };
 allow hal_fingerprint_default fingerprintd_data_file:file { create_file_perms };
+
+# Allow fingerprint HAL to get updates from health hal
+hal_client_domain(hal_fingerprint_default, hal_health)

@@ -43,6 +43,9 @@
 /(mnt/vendor/persist|persist)/chargeonly(/.*)?          u:object_r:persist_chargeonly_file:s0
 /(vendor|system/vendor)/bin/charge_only_mode            u:object_r:charge_only_exec:s0
 
+# DRI
+/dev/dri/card[0-4]              u:object_r:graphics_device:s0
+
 # Fingerprint
 /(mnt/vendor/persist|persist)/egis(/.*)?                u:object_r:vendor_persist_egis_file:s0
 /(mnt/vendor/persist|persist)/fps(/.*)?                 u:object_r:vendor_persist_fps_file:s0

@@ -3,6 +3,7 @@ allow hal_fingerprint_default {
   egis_device
   goodix_device
   tee_device
+  graphics_device
 }: chr_file rw_file_perms;
 
 allow hal_fingerprint_default self:binder { call transfer };

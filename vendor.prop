@@ -288,6 +288,7 @@ ro.soc.manufacturer=QTI
 debug.stagefright.c2inputsurface=-1
 
 # Surfaceflinger
+debug.sf.auto_latch_unsignaled=0
 debug.sf.disable_client_composition_cache=1
 debug.sf.early.app.duration=13666666
 debug.sf.early.sf.duration=10500000

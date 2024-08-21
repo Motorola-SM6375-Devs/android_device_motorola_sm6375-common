@@ -275,6 +275,7 @@
       "Path": "/sys/class/devfreq/fd90100.qcom,cpu0-cpu-l3-lat/min_freq",
       "Values": [
         "1497600000",
+        "1171200000",
         "300000000"
       ],
       "ResetOnInit": true
@@ -284,6 +285,7 @@
       "Path": "/sys/class/devfreq/fd90100.qcom,cpu6-cpu-l3-lat/min_freq",
       "Values": [
         "1497600000",
+        "1171200000",
         "300000000"
       ],
       "ResetOnInit": true
@@ -481,6 +483,18 @@
       "Node": "CPUDDRLatfloorBigMinFreq",
       "Duration": 0,
       "Value": "7980"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "L3LittleClusterMinFreq",
+      "Duration": 0,
+      "Value": "1171200000"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "L3BigClusterMinFreq",
+      "Duration": 0,
+      "Value": "1171200000"
     },
     {
       "PowerHint": "INTERACTIVE",

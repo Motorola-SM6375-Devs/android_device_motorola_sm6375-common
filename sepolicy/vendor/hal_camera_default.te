@@ -16,6 +16,8 @@ r_dir_file(hal_camera_default, vendor_sysfs_battery_supply)
 # (X)DSP
 allow hal_camera_default vendor_xdsp_device:chr_file r_file_perms;
 
+dontaudit hal_camera_default default_prop:file read;
+
 # QSPM hal service for accessing camera info
 hal_client_domain(hal_camera_default, vendor_hal_qspmhal)
 

@@ -153,12 +153,14 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
-vendor/lib64/libcne.so
+# libcne depends on libwpa_client, which is a gnu makefile target
+vendor/lib64/libcne.so;DISABLE_CHECKELF
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib64/libwms.so
-vendor/lib64/libwqe.so
+# libwqe depends on libwpa_client, which is a gnu makefile target
+vendor/lib64/libwqe.so;DISABLE_CHECKELF
 vendor/lib64/libxml.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
@@ -354,7 +356,8 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 -vendor/app/CACertService/CACertService.apk
 vendor/bin/hw/android.hardware.gnss@2.1-service-qti
 vendor/bin/loc_launcher
-vendor/bin/lowi-server
+# lowi-server depends on libwpa_client, which is a gnu makefile target
+vendor/bin/lowi-server;DISABLE_CHECKELF
 vendor/bin/mlid
 vendor/bin/xtra-daemon
 vendor/bin/xtwifi-client
@@ -721,10 +724,12 @@ vendor/lib64/deviceInfoServiceModuleNr.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblog_vendor.so
 vendor/lib64/liblqe.so
-vendor/lib64/libmdmcutback.so
+# libmdmcutback depends on libqsap_sdk, which is a gnu makefile target
+vendor/lib64/libmdmcutback.so;DISABLE_CHECKELF
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libminkdescriptor.so
-vendor/lib64/libmotext_inf.so
+# libmotext_inf depends on libril, which is a gnu makefile target
+vendor/lib64/libmotext_inf.so;DISABLE_CHECKELF
 vendor/lib64/libnetmgr.so
 vendor/lib64/libnetmgr_common.so
 vendor/lib64/libnetmgr_nr_fusion.so
@@ -746,7 +751,8 @@ vendor/lib64/libqsocket.so
 vendor/lib64/libril-db.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-radioconfig.so
-vendor/lib64/libril-qcril-hook-oem.so
+# libril-qcril-hook-oem depends on libril, which is a gnu makefile target
+vendor/lib64/libril-qcril-hook-oem.so;DISABLE_CHECKELF
 vendor/lib64/librilqmimiscservices.so
 vendor/lib64/librilqmiservices.so
 vendor/lib64/libsystem_health_mon.so

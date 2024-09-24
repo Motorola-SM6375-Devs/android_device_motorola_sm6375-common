@@ -71,7 +71,7 @@ function blob_fixup() {
             sed -i "s#/system/#/system_ext/#" "${2}"
             ;;
         vendor/etc/vintf/manifest/vendor.dolby.media.c2@1.0-service.xml)
-            sed -ni '/default1/!p' "${2}"
+            sed -ni '/default.*fqname/!p' "${2}"
             ;;
     esac
 }

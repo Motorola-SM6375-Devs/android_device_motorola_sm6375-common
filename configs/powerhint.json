@@ -316,79 +316,79 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "2054400"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "9999999"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "78"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWHystTriggerCount",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "0"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWHystLength",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "0"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWHistMemory",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "0"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "5161"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUDDRLatLittleMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "7980"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUDDRLatBigMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "7980"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUDDRLatfloorLittleMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "7980"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUDDRLatfloorBigMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "7980"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "L3LittleClusterMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "1171200000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "L3BigClusterMinFreq",
-      "Duration": 0,
+      "Duration": 1000,
       "Value": "1171200000"
     },
     {

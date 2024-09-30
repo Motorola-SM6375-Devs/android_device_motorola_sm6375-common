@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from fogos_g-user 14 U1UGS34M.23-82-2-2 0c9cb9 release-keys
+# All unpinned blobs are extracted from fogos_g-user 14 U1UGS34M.23-82-2-3 da6528 release-keys
 
 # ADSP
 vendor/bin/adsprpcd
@@ -108,8 +108,10 @@ vendor/bin/cdsprpcd
 vendor/etc/init/vendor.qti.cdsprpc-service.rc
 vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
+vendor/lib/libmdsprpc.so 
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
+vendor/lib64/libmdsprpc.so
 
 # Charger
 vendor/bin/charge_only_mode
@@ -117,7 +119,7 @@ vendor/bin/hvdcp_opti
 vendor/etc/charger_fstab.qti
 vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 
-# CNE - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# CNE
 -vendor/app/CneApp/CneApp.apk
 vendor/bin/cnd
 vendor/etc/cne/mwqem.conf
@@ -256,6 +258,7 @@ vendor/lib64/libhdr_tm.so
 vendor/bin/qdcmss
 vendor/etc/init/qdcmss.rc
 vendor/etc/snapdragon_color_libs_config.xml
+vendor/lib64/libdpps.so
 vendor/lib64/libqdcm-mode-parser.so
 vendor/lib64/libsnapdragoncolor-manager.so
 vendor/lib64/libsnapdragoncolor-qdcm.so
@@ -435,6 +438,8 @@ vendor/lib/libadreno_utils.so
 vendor/lib/libc2d30_bltlib.so
 vendor/lib/libgpudataproducer.so
 vendor/lib/libgsl.so
+vendor/lib/libkcl.so
+vendor/lib/libkernelmanager.so
 vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
 vendor/lib64/egl/eglSubDriverAndroid.so
@@ -452,6 +457,8 @@ vendor/lib64/libadreno_utils.so
 vendor/lib64/libc2d30_bltlib.so
 vendor/lib64/libgpudataproducer.so
 vendor/lib64/libgsl.so
+vendor/lib64/libkcl.so
+vendor/lib64/libkernelmanager.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 
@@ -507,7 +514,7 @@ vendor/lib64/libgcs.so
 vendor/lib64/liblistensoundmodel2.so
 vendor/lib64/libmulawdec.so
 
-# Media - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# Media
 system_ext/lib/libmmosal.so
 system_ext/lib/libmmparser_lite.so
 system_ext/lib64/libmmosal.so
@@ -528,14 +535,14 @@ vendor/lib/libqcodec2_utils.so
 vendor/lib/libqcodec2_v4l2codec.so
 vendor/lib64/libmmosal.so
 
-# Media configs - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# Media configs
 vendor/etc/media_blair/video_system_specs.json
 vendor/etc/media_holi/video_system_specs.json
 
 # OEM
 vendor/bin/motobox
 
-# OMX - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# OMX
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
@@ -553,6 +560,7 @@ vendor/lib/libOmxG711Dec.so
 vendor/lib/libOmxMpeghDecSw.so
 vendor/lib/libOmxMpeghEncSw.so
 vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libdsd2pcm.so
 vendor/lib64/libAlacSwDec.so
@@ -602,7 +610,7 @@ system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so
 vendor/lib/vendor.qti.hardware.qccsyshal@1.0.so
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 
-# QMI - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# QMI
 system/etc/permissions/privapp-permissions-qti.xml
 system/etc/sysconfig/qti_whitelist.xml
 vendor/bin/irsc_util
@@ -646,12 +654,15 @@ vendor/lib64/libqmi_legacy.so
 vendor/lib64/libqmiservices.so
 vendor/lib64/libsubsystem_control.so
 
-# RIL - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# RIL
 -product/app/uimgbaservice/uimgbaservice.apk
 product/etc/permissions/UimGba.xml
 product/etc/permissions/UimGbaManager.xml
+product/etc/permissions/UimService.xml
 product/framework/uimgbalibrary.jar
 product/framework/uimgbamanagerlibrary.jar
+product/framework/uimservicelibrary.jar
+system_ext/app/QtiTelephony/QtiTelephony.apk
 -system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_libpermissions.xml
@@ -672,7 +683,10 @@ vendor/bin/qrtr-cfg
 vendor/bin/qrtr-lookup
 vendor/bin/qrtr-ns
 vendor/bin/qti
+vendor/bin/qtigetprop
+vendor/bin/qtisetprop
 vendor/bin/rmt_storage
+vendor/bin/shsusrd
 vendor/bin/tftp_server
 vendor/etc/data/dsi_config.xml
 vendor/etc/data/netmgr_config.xml
@@ -683,11 +697,14 @@ vendor/etc/init/ipa_fws.rc
 vendor/etc/init/netmgrd.rc
 vendor/etc/init/port-bridge.rc
 vendor/etc/init/qcrilNrd.rc
+vendor/etc/init/shsusrd.rc
 vendor/etc/init/vendor.qti.rmt_storage.rc
 vendor/etc/init/vendor.qti.tftp.rc
 vendor/etc/qcril_database/qcrilNr.db
 vendor/etc/qcril_database/upgrade/config/10.0_config.sql
 vendor/etc/qcril_database/upgrade/config/11.0_config.sql
+vendor/etc/qcril_database/upgrade/config/12.0_config.sql
+vendor/etc/qcril_database/upgrade/config/13.0_config.sql
 vendor/etc/qcril_database/upgrade/config/6.0_config.sql
 vendor/etc/qcril_database/upgrade/config/9.0_config.sql
 vendor/etc/qcril_database/upgrade/ecc/0_initial.sql
@@ -720,6 +737,12 @@ vendor/etc/qcril_database/upgrade/ecc/36_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/37_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/38_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/39_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/40_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/41_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/42_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/43_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/44_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/45_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/3_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/4_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/5_version_qcrildb.sql
@@ -768,6 +791,7 @@ vendor/lib64/librilqmimiscservices.so
 vendor/lib64/librilqmiservices.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/qcrilMarshal.so
+vendor/lib64/qcril_client.so
 vendor/lib64/qcrild_libqcrilnrutils.so
 vendor/lib64/qtiril-utils.so
 vendor/lib64/qtiwakelock.so
@@ -795,19 +819,28 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 
-# Ril - IMS (APK) - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# Ril - IMS (APK)
 system/etc/permissions/moto-telephony.xml:system_ext/etc/permissions/moto-telephony.xml
 system/framework/moto-telephony.jar:system_ext/framework/moto-telephony.jar
 system_ext/lib64/libimsmedia_jni.so
 -system_ext/priv-app/ims/ims.apk
 
-# RIL - IMS - from corfur_g-user 12 S2RUBS32.51-15-9-5 76c7d7 release-keys.
+# RIL - IMS
 -system_ext/app/ImsRcsService/ImsRcsService.apk
 system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml
+system_ext/framework/vendor.qti.ims.configservice-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.configservice-V1.1-java.jar
 system_ext/framework/vendor.qti.ims.connection-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.0-java.jar
+system_ext/framework/vendor.qti.ims.factory-V2.1-java.jar
+system_ext/framework/vendor.qti.ims.factory-V2.2-java.jar
 system_ext/framework/vendor.qti.ims.rcssip-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.rcssip-V1.1-java.jar
+system_ext/framework/vendor.qti.ims.rcssip-V1.2-java.jar
 system_ext/framework/vendor.qti.ims.rcsuce-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.rcsuce-V1.1-java.jar
+system_ext/framework/vendor.qti.ims.rcsuce-V1.2-java.jar
 system_ext/lib64/lib-imsvideocodec.so
 system_ext/lib64/lib-imsvt.so
 system_ext/lib64/lib-imsvtextutils.so
@@ -817,6 +850,7 @@ system_ext/lib64/libimscamera_jni.so
 system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
+system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdaemon
 vendor/etc/init/ims_rtp_daemon.rc
@@ -849,6 +883,8 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.5.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.6.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.7.so
+vendor/lib64/vendor.qti.hardware.radio.ims@1.8.so
+vendor/lib64/vendor.qti.hardware.radio.ims@1.9.so
 vendor/lib64/vendor.qti.ims.callcapability@1.0.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.ims.configservice@1.0.so
@@ -1066,16 +1102,20 @@ system_ext/lib/libwfduibcsinkinterface.so
 system_ext/lib/libwfduibcsrc.so
 system_ext/lib/libwfduibcsrcinterface.so
 system_ext/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
+system_ext/lib64/com.qualcomm.qti.wifidisplayhal@1.0.so
 system_ext/lib64/libmmrtpdecoder.so
 system_ext/lib64/libmmrtpencoder.so
+system_ext/lib64/libwfdavenhancements.so
 system_ext/lib64/libwfdclient.so
 system_ext/lib64/libwfdcommonutils.so
 system_ext/lib64/libwfdconfigutils.so
 system_ext/lib64/libwfddisplayconfig.so
 system_ext/lib64/libwfdmminterface.so
 system_ext/lib64/libwfdmmsink.so
+system_ext/lib64/libwfdmmsrc_system.so
 system_ext/lib64/libwfdnative.so
 system_ext/lib64/libwfdrtsp.so
+system_ext/lib64/libwfdservice.so
 system_ext/lib64/libwfdsinksm.so
 system_ext/lib64/libwfduibcinterface.so
 system_ext/lib64/libwfduibcsink.so

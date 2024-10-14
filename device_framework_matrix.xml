@@ -4,8 +4,78 @@
         <version>1.1</version>
         <interface>
             <name>IEvsEnumerator</name>
-            <instance>EvsEnumeratorHw</instance>
-            <instance>EvsEnumeratorHw-Mock</instance>
+            <instance>default</instance>
+            <instance>hw/1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+	<name>android.hardware.usb</name>
+	<version>1.0-3</version>
+	<interface>
+	    <name>IUsb</name>
+	    <instance>default</instance>
+	</interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.bluetooth.audio</name>
+        <version>4</version>
+        <interface>
+            <name>IBluetoothAudioProviderFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+    <name>android.hardware.power</name>
+	<version>4</version>
+    <interface>
+        <name>IPower</name>
+        <instance>default</instance>
+    </interface>
+   </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.cas</name>
+        <version>1</version>
+        <interface>
+            <name>IMediaCasService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+	<name>android.hardware.vibrator</name>
+	<interface>
+	    <name>IVibrator</name>
+	    <instance>default</instance>
+	</interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.wifi</name>
+        <version>2</version>
+        <interface>
+            <name>IWifi</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.wifi.hostapd</name>
+        <version>2</version>
+        <interface>
+            <name>IHostapd</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.drm</name>
+        <version>1</version>
+        <interface>
+            <name>IDrmFactory</name>
+            <instance>clearkey</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.wifi.supplicant</name>
+        <version>3</version>
+        <interface>
+            <name>ISupplicant</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -30,7 +100,7 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.nfc</name>
-        <version>1.0-2</version>
+        <version>1.0</version>
         <interface>
             <name>INfc</name>
             <instance>default</instance>
@@ -57,62 +127,6 @@
             <name>IRadioConfig</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.hardware.radio.data</name>
-       <interface>
-           <name>IRadioData</name>
-           <instance>slot1</instance>
-           <instance>slot2</instance>
-       </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.hardware.radio.ims</name>
-       <interface>
-           <name>IRadioIms</name>
-           <instance>slot1</instance>
-           <instance>slot2</instance>
-       </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.hardware.radio.messaging</name>
-       <interface>
-           <name>IRadioMessaging</name>
-           <instance>slot1</instance>
-           <instance>slot2</instance>
-       </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.hardware.radio.modem</name>
-       <interface>
-           <name>IRadioModem</name>
-           <instance>slot1</instance>
-           <instance>slot2</instance>
-       </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.hardware.radio.network</name>
-       <interface>
-           <name>IRadioNetwork</name>
-           <instance>slot1</instance>
-           <instance>slot2</instance>
-       </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.hardware.radio.sim</name>
-       <interface>
-           <name>IRadioSim</name>
-           <instance>slot1</instance>
-           <instance>slot2</instance>
-       </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.hardware.radio.voice</name>
-       <interface>
-           <name>IRadioVoice</name>
-           <instance>slot1</instance>
-           <instance>slot2</instance>
-       </interface>
     </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.uwb</name>
@@ -141,7 +155,6 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>com.motorola.hardware.biometric.fingerprint</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IMotoFingerPrint</name>
@@ -162,7 +175,6 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>com.motorola.hardware.display.touch</name>
-        <transport>hwbinder</transport>
         <version>1.0-1</version>
         <interface>
             <name>IMotTouch</name>
@@ -226,7 +238,7 @@
     <hal format="hidl" optional="true">
         <name>motorola.hardware.camera.desktop</name>
         <version>1.0</version>
-	<version>2.0</version>
+        <version>2.0</version>
         <interface>
             <name>ICameraDesktop</name>
             <instance>default</instance>
@@ -235,6 +247,7 @@
     <hal format="hidl" optional="true">
         <name>motorola.hardware.camera.imgtuner</name>
         <version>1.0</version>
+        <version>2.0</version>
         <interface>
             <name>IImageTuning</name>
             <instance>default</instance>
@@ -348,18 +361,18 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.qti.dvr</name>
-        <version>1.0</version>
-        <interface>
-            <name>IDvrDisplay</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>vendor.qti.diaghal</name>
         <version>1.0</version>
         <interface>
             <name>Idiag</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.dvr</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDvrDisplay</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -549,7 +562,8 @@
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.display.composer</name>
         <version>2.0-1</version>
-        <version>3.0-1</version>
+        <version>3.0</version>
+        <version>3.1</version>
         <interface>
             <name>IQtiComposer</name>
             <instance>default</instance>
@@ -656,9 +670,14 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.iop</name>
+        <version>1.0</version>
         <version>2.0</version>
         <interface>
             <name>IIop</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IFactory</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -1158,7 +1177,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    
     <hal format="hidl" optional="true">
         <name>vendor.qti.voiceprint</name>
         <version>1.0</version>
@@ -1206,5 +1224,70 @@
             <name>IAlarm</name>
             <instance>default</instance>
         </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.graphics.allocator</name>
+        <interface>
+            <name>IAllocator</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <sepolicy>
+        <kernel-sepolicy-version>30</kernel-sepolicy-version>
+        <sepolicy-version>26.0</sepolicy-version>
+        <sepolicy-version>27.0</sepolicy-version>
+        <sepolicy-version>28.0</sepolicy-version>
+        <sepolicy-version>29.0</sepolicy-version>
+        <sepolicy-version>30.0</sepolicy-version>
+        <sepolicy-version>31.0</sepolicy-version>
+    </sepolicy>
+    <avb>
+        <vbmeta-version>1.0</vbmeta-version>
+    </avb>
+    <!-- Health -->
+    <hal format="aidl" optional="true">
+        <name>vendor.lineage.health</name>
+        <interface>
+            <name>IChargingControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.fastcharge</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFastCharge</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IFastCharge/default</fqname>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.touch</name>
+        <version>1.0</version>
+        <interface>
+            <name>IHighTouchPollingRate</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.touch</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITouchscreenGesture</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IKeyDisabler</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IKeySwapper</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ITouchscreenGesture/default</fqname>
+        <fqname>@1.0::IKeyDisabler/default</fqname>
+        <fqname>@1.0::IKeySwapper/default</fqname>
     </hal>
 </compatibility-matrix>

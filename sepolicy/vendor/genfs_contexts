@@ -67,7 +67,7 @@ genfscon sysfs /devices/platform/soc/aa00000.qcom,vidc/sku_version              
 genfscon sysfs /class/touchscreen                                               u:object_r:vendor_sysfs_touchpanel:s0
 genfscon sysfs /devices/virtual/touchscreen                                     u:object_r:vendor_sysfs_touchpanel:s0
 genfscon sysfs /devices/platform/soc/a94000.i2c/i2c-2/2-0049/touchscreen        u:object_r:vendor_sysfs_touchpanel:s0
-genfscon sysfs /devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0         u:object_r:vendor_sysfs_touchpanel:s0
+genfscon sysfs /devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.[01]      u:object_r:vendor_sysfs_touchpanel:s0
 
 # USB
 genfscon sysfs /devices/platform/soc/4e00000.ssusb/mode                         u:object_r:vendor_sysfs_usb_device:s0

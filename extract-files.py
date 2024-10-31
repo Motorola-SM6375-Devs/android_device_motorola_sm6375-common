@@ -30,10 +30,8 @@ namespace_imports = [
     'vendor/qcom/opensource/display',
 ]
 
-
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
-
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
@@ -51,7 +49,6 @@ lib_fixups: lib_fixups_user_type = {
         'libdiag_system',
         'libdpmframework',
         'libqsap_sdk',
-        'libril',
         'libthermalclient',
         'libwpa_client',
         'vendor.qti.qspmhal@1.0',

@@ -1,7 +1,7 @@
-From 789e1c4dace46b872198b5180ea77afb1b1a2c17 Mon Sep 17 00:00:00 2001
+From 74cc53ffea595daf25e176fb1783641994fb794d Mon Sep 17 00:00:00 2001
 From: SGCMarkus <markusornik@gmail.com>
 Date: Wed, 21 Feb 2024 19:18:49 +0100
-Subject: [PATCH] ims: globally set RECEIVER_EXPORTED for registerReceiver
+Subject: [PATCH 4/5] ims: globally set RECEIVER_EXPORTED for registerReceiver
 
 E AndroidRuntime: FATAL EXCEPTION: main
 E AndroidRuntime: Process: org.codeaurora.ims, PID: 3692
@@ -15,7 +15,7 @@ E AndroidRuntime: java.lang.RuntimeException: Unable to create service org.codea
  5 files changed, 18 insertions(+), 6 deletions(-)
 
 diff --git a/smali/com/qualcomm/ims/vt/LowBatteryHandler.smali b/smali/com/qualcomm/ims/vt/LowBatteryHandler.smali
-index d69a656b..deff6dba 100644
+index d69a656..deff6db 100644
 --- a/smali/com/qualcomm/ims/vt/LowBatteryHandler.smali
 +++ b/smali/com/qualcomm/ims/vt/LowBatteryHandler.smali
 @@ -150,7 +150,9 @@
@@ -30,7 +30,7 @@ index d69a656b..deff6dba 100644
      .line 49
      return-void
 diff --git a/smali/org/codeaurora/ims/ImsCallModification.smali b/smali/org/codeaurora/ims/ImsCallModification.smali
-index 3c209dfd..a18213bf 100644
+index 3c209df..a18213b 100644
 --- a/smali/org/codeaurora/ims/ImsCallModification.smali
 +++ b/smali/org/codeaurora/ims/ImsCallModification.smali
 @@ -300,7 +300,9 @@
@@ -45,7 +45,7 @@ index 3c209dfd..a18213bf 100644
      .line 141
      const-string v0, "Registering car mode receiver"
 diff --git a/smali/org/codeaurora/ims/ImsConfigImpl.smali b/smali/org/codeaurora/ims/ImsConfigImpl.smali
-index c38fe206..4daeb745 100644
+index c38fe20..4daeb74 100644
 --- a/smali/org/codeaurora/ims/ImsConfigImpl.smali
 +++ b/smali/org/codeaurora/ims/ImsConfigImpl.smali
 @@ -668,7 +668,9 @@
@@ -60,7 +60,7 @@ index c38fe206..4daeb745 100644
      .line 257
      new-instance v1, Landroid/os/HandlerThread;
 diff --git a/smali/org/codeaurora/ims/ImsServiceSub.smali b/smali/org/codeaurora/ims/ImsServiceSub.smali
-index 4a4a489d..579abd88 100644
+index 4a4a489..579abd8 100644
 --- a/smali/org/codeaurora/ims/ImsServiceSub.smali
 +++ b/smali/org/codeaurora/ims/ImsServiceSub.smali
 @@ -1074,7 +1074,9 @@
@@ -75,7 +75,7 @@ index 4a4a489d..579abd88 100644
      .line 312
      iget-object v2, p0, Lorg/codeaurora/ims/ImsServiceSub;->mImsServiceStateReceiver:Lorg/codeaurora/ims/ImsServiceStateReceiver;
 diff --git a/smali/org/codeaurora/ims/ImsSubController.smali b/smali/org/codeaurora/ims/ImsSubController.smali
-index 3f21add4..e0f6feb0 100644
+index 3f21add..e0f6feb 100644
 --- a/smali/org/codeaurora/ims/ImsSubController.smali
 +++ b/smali/org/codeaurora/ims/ImsSubController.smali
 @@ -416,7 +416,9 @@
@@ -100,3 +100,6 @@ index 3f21add4..e0f6feb0 100644
  
      .line 752
      iput-boolean v3, p0, Lorg/codeaurora/ims/ImsSubController;->mIsReceiverRegistered:Z
+-- 
+2.43.0
+

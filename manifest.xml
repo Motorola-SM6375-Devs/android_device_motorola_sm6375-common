@@ -91,15 +91,6 @@
         <fqname>@1.5::IRadio/slot2</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.radio.config</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>IRadioConfig</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.secure_element</name>
         <transport>hwbinder</transport>
         <version>1.2</version>
@@ -587,16 +578,6 @@
             <name>IRTPService</name>
             <instance>imsrtpservice</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.qccsyshal</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>IQccsyshal</name>
-            <instance>qccsyshal</instance>
-        </interface>
-        <fqname>@1.2::IQccsyshal/qccsyshal</fqname>
     </hal>
     <kernel target-level="5"/>
 </manifest>

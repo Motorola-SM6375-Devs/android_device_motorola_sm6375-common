@@ -362,7 +362,6 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     libqti-perfd-client
 
-
 # Fast Charge HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.fastcharge@1.0-service.qcom

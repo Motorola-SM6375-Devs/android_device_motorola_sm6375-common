@@ -362,6 +362,11 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     libqti-perfd-client
 
+
+# Fast Charge HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.fastcharge@1.0-service.qcom
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 

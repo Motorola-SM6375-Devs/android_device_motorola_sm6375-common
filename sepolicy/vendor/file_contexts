@@ -114,3 +114,6 @@
 /sys/devices/virtual/input/input[0-9]+/wakeup[0-9]+(/.*)?                                 u:object_r:sysfs_wakeup:s0
 /sys/devices/platform/soc/[^*]+/wakeup/wakeup[0-9]+(/.*)?                                 u:object_r:sysfs_wakeup:s0
 /sys/devices/virtual/misc/[^*]+/wakeup[0-9]+(/.*)?                                        u:object_r:sysfs_wakeup:s0
+
+# Fast Charge HAL
+/vendor/bin/hw/vendor\.lineage\.fastcharge@1\.0-service\.qcom u:object_r:hal_lineage_fastcharge_default_exec:s0

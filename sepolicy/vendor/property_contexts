@@ -21,3 +21,6 @@ vendor.nfc.fw_status       u:object_r:vendor_mot_nfc_prop:s0
 persist.vendor.hardware.fingerprint            u:object_r:vendor_mot_fingerprint_prop:s0
 vendor.hw.fps.ident                            u:object_r:vendor_mot_fingerprint_prop:s0
 vendor.hw.fingerprint.status                   u:object_r:vendor_mot_fingerprint_prop:s0
+
+# Fast Charge
+persist.vendor.fastchg_enabled          u:object_r:vendor_fastcharge_prop:s0

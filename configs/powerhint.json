@@ -320,11 +320,6 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Type": "EndHint",
-      "Value": "DISABLE_TA_BOOST"
-    },
-    {
-      "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 1000,
       "Value": "1651200"
@@ -442,11 +437,6 @@
       "Node": "CPUBigClusterDownRateLimit",
       "Duration": 0,
       "Value": "20000"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Type": "EndHint",
-      "Value": "DISABLE_TA_BOOST"
     },
     {
       "PowerHint": "LAUNCH",
@@ -621,40 +611,6 @@
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
       "Value": "1651200"
-    },
-    {
-      "PowerHint": "DISABLE_TA_BOOST",
-      "Node": "UclampTAMin",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 0,
-      "Value": "300000"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Type": "DoHint",
-      "Value": "DISABLE_TA_BOOST"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Type": "EndHint",
-      "Value": "INTERACTION"
-    },
-    {
-      "PowerHint": "DISPLAY_INACTIVE",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 0,
-      "Value": "300000"
     }
   ]
 }

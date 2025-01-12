@@ -9,7 +9,7 @@
         "1651200",
         "1516800"
       ],
-      "DefaultIndex": 3,
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -23,7 +23,6 @@
         "576000",
         "300000"
       ],
-      "DefaultIndex": 5,
       "ResetOnInit": true
     },
     {
@@ -53,7 +52,7 @@
         "1900800",
         "1516800"
       ],
-      "DefaultIndex": 3,
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -175,7 +174,7 @@
         "1 => 650000000",
         "2 => 266000000"
       ],
-      "DefaultIndex": 2,
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -336,7 +335,7 @@
       "Values": [
         "1",
         "0"
-      ],
+      ]
     },
     {
       "Name": "PowerHALMainState",

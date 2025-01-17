@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from fogos_g-user 14 U1UGS34M.23-82-2-3 da6528 release-keys
+# All unpinned blobs are extracted from fogos_g-user 14 U1UGS34.23-82-2-6 e21904 release-keys
 
 # ADSP
 vendor/bin/adsprpcd

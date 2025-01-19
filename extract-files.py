@@ -62,9 +62,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libinput_shim.so'),
     'vendor/etc/vintf/manifest/vendor.dolby.media.c2@1.0-service.xml': blob_fixup()
         .regex_replace('IComponentStore/default9', 'IComponentStore/default'),
-    'vendor/etc/qcril_database/qcrilNr.db': blob_fixup(),
-    'vendor/etc/qcril_database/upgrade/config/*': blob_fixup()
-        .regex_replace('persist.vendor.radio.poweron_opt/1', 'persist.vendor.radio.poweron_opt/0'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

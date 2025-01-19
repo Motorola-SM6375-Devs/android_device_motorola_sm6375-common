@@ -4,6 +4,7 @@
 # libcne, libwqe, lowi-server, mutualex depend on libwpa_client, which is a gnu makefile target
 # libmdmcutback depends on libqsap_sdk, which is a gnu makefile target
 # libmotext_inf, libril-qcril-hook-oem depend on libril, which is a gnu makefile target
+# thermal-engine depends on libthermalclient, which is device specific
 
 # ADSP
 vendor/bin/adsprpcd
@@ -928,7 +929,7 @@ vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Thermal engine
-vendor/bin/thermal-engine
+vendor/bin/thermal-engine;DISABLE_CHECKELF
 vendor/etc/init/init_thermal-engine.rc
 vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so

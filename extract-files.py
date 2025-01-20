@@ -37,7 +37,6 @@ lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
         'com.qualcomm.qti.dpm.api@1.0',
-        'lib-imsvtutils',
         'libmmosal',
         'vendor.qti.diaghal@1.0',
         'vendor.qti.hardware.fm@1.0',
@@ -47,7 +46,6 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_vendor_suffix,
     (
         'libdiag_system',
-        'libdpmframework',
         'libqsap_sdk',
         'libthermalclient',
         'libwpa_client',

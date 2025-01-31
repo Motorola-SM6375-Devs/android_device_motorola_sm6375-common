@@ -1,0 +1,41 @@
+From 4ed8978b35fd6b6723f995d534b534c4c4071c49 Mon Sep 17 00:00:00 2001
+From: SagarMakhar <sagarmakhar@gmail.com>
+Date: Tue, 1 Oct 2024 23:59:30 +0530
+Subject: [PATCH] sm6375-common: Fix persist.vendor.radio.poweron_opt to 0
+
+* If this value 1 breaks SMS receiving
+
+Change-Id: I6f045b67c4a84b246471fa9249fa883fc78c1ee1
+---
+ .../vendor/etc/qcril_database/qcrilNr.db      | Bin 106496 -> 106496 bytes
+ .../upgrade/config/6.0_config.sql             |   2 +-
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/qcrilNr.db b/qcrilNr.db
+index da4cbc60ddfefce5e42ca2b2512db4354c6dec0e..5e2ff97d7bafc4db15b9166b1be284e61508dac8 100644
+GIT binary patch
+delta 528
+zcmYL^&r4KM9K}6zXB<R`Mj=yhG8$i_kA|-(xh*LdE&8!^5n36}R8WLUZ{ExslWCBY
+ziI~x&W}r)5wFutAg|!c&KOoUn>-H`B-X1h?7x#0{x!><SOJCZT^nAvI7Z>Msl3zVs
+zV!?xJF%jXRhapZEk${N=duLY>jt$|z<{EJ-meRaX)x@VFhE*!Jqzxb0giMR$w=@Xv
+z`54lm*AltwBd5-HeUKD+H96@n@`n$HnGyyd;ms2Ipn;h(s_i1~)A$rmOX%U1O{CZr
+zU@$I{De&|WdYKE*!TSL&8_CS^L7){60^Bw-Jj;_=4b*Em%S^=vvJZLjrAmjZIKzbs
+zYP#%C1?RhsjHmc}OD$>Os*$!8UT<KK^#-y^HNLlW+<;>nwpBUORL(X3xyum+P3z`I
+zO@VtWILD(VZWu9-BT8=|$?bXl%IG@wb??u0OxThG#7<0}^X{5%zf;!0FT#z<vq;g(
+zV=;NcR9$V`HGH#)Bg7=l-7WNmGuyak$LxJTs8gqQaLeMmw;F$uN1Xk6bcWwP>Xg4{
+C_@I;k
+
+delta 540
+zcmYL^%}Z2a6vpS7cRnCRoPxf@sqi{8&XC-LQCpR87e%yj)o2rqB^II4bv~<M5RIw0
+z>Z4|$OKH<0xC^0=eGvTtfwOBBxNp&U8!&hm=lq`MJ?A|2FR{A5j~MqNl6n^BR}TXm
+z^$_Kphm>W}4%_!I6qDNu%s&8O&mywc0ShuLEFxtjRkK}^=NdZWgE|yd{-gC0GEqCG
+zbj0GksZed+5sGrBgkfFrU6r`FPbVgFPxzyR9EZy2<L?%FgIi^EK|T2j8ZmKm4<eIn
+zmvM?0H;~}*Dh4CsIx}qF!5I!$(an4njuGb`r?lYvDy|vH7I;ulL#v5iIyIz?WTtuH
+zv7-GI^l+huCM5V%!|4-7t|WN4sgmpCvXRgd$9$yu+PBF=O}??+fe*(<3^lAeprspn
+z!M2Y<^*pyln)OxdDUO&K?k?dZKd<7d5p%cGCD#$>*1R4xvW7j~{&NlEHtKm|J1h@*
+z<E7qky`nLH5!tZJc8CVQ6qfr;v{cr_$AabtJ|Qeg?rh?0kl(_n9kcru0hgy#pWeop
+VC9jtC$D<-5>@T7#`1Vc*{RQMJrl$Y^
+
+-- 
+GitLab
+

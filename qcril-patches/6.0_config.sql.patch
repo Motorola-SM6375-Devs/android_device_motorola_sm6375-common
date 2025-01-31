@@ -1,0 +1,30 @@
+From 4ed8978b35fd6b6723f995d534b534c4c4071c49 Mon Sep 17 00:00:00 2001
+From: SagarMakhar <sagarmakhar@gmail.com>
+Date: Tue, 1 Oct 2024 23:59:30 +0530
+Subject: [PATCH] sm6375-common: Fix persist.vendor.radio.poweron_opt to 0
+
+* If this value 1 breaks SMS receiving
+
+Change-Id: I6f045b67c4a84b246471fa9249fa883fc78c1ee1
+---
+ .../vendor/etc/qcril_database/qcrilNr.db      | Bin 106496 -> 106496 bytes
+ .../upgrade/config/6.0_config.sql             |   2 +-
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/6.0_config.sql b/6.0_config.sql
+index d178cf1..3a4c811 100644
+--- a/6.0_config.sql
++++ b/6.0_config.sql
+@@ -104,7 +104,7 @@ INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist
+ INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.csg_info_avlbl", "0");
+ INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.cs_srv_type", "0");
+ INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.limit_rac_change", "0");
+-INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.poweron_opt", "1");
++INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.poweron_opt", "0");
+ INSERT OR REPLACE INTO qcril_properties_table(property) VALUES("persist.vendor.radio.sglte_target");
+ INSERT OR REPLACE INTO qcril_properties_table(property) VALUES("persist.vendor.radio.nitz_plmn_0");
+ INSERT OR REPLACE INTO qcril_properties_table(property) VALUES("persist.vendor.radio.nitz_plmn_1");
+
+-- 
+GitLab
+

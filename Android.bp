@@ -18,13 +18,6 @@ install_symlink {
 }
 
 install_symlink {
-    name: "rfs_msm_mpss_readonly_vendor_fsg_symlink",
-    vendor: true,
-    installed_location: "rfs/msm/mpss/readonly/vendor/fsg",
-    symlink_target: "/vendor/fsg",
-}
-
-install_symlink {
     name: "firmware_wlan_mac.bin_symlink",
     vendor: true,
     installed_location: "firmware/wlan/qca_cld/wlan_mac.bin",

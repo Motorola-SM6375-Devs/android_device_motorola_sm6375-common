@@ -83,6 +83,7 @@ genfscon sysfs /devices/platform/soc/soc:mmi,charger/wakeup                     
 genfscon sysfs /devices/platform/soc/soc:mmi,charger/power/wakeup                                  u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:mmi,charger/power_supply/mmi_battery/wakeup               u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:mmi,charger/power_supply/mmi_battery/power/wakeup         u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:mmi,discrete-charging/power_supply/battery/wakeup         u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/power_supply/battery/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/power_supply/mmi_battery/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5/power_supply/qcom_battery/wakeup u:object_r:sysfs_wakeup:s0

@@ -62,8 +62,10 @@
 /data/vendor/egis(/.*)?                                 u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/fpc(/.*)?                                  u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/focal(/.*)?                                u:object_r:fingerprint_vendor_data_file:s0
+/data/vendor/focaltech(/.*)?                            u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/gf_data(/.*)?                              u:object_r:fingerprint_vendor_data_file:s0
 /dev/esfp0                                              u:object_r:egis_device:s0
+/dev/focaltech_fp                                       u:object_r:focaltech_fp_device:s0
 /dev/goodix_fp                                          u:object_r:goodix_device:s0
 /sys/devices/soc/0.et320(/.*)?                          u:object_r:vendor_sysfs_fingerprint:s0
 

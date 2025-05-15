@@ -258,6 +258,9 @@ on post-fs-data
     mkdir /data/vendor/fpc 0700 system system
     mkdir /data/vendor/.fps 0770 system vendor_fingerp
 
+    mkdir /data/vendor/focaltech  0770  system system
+    restorecon /data/vendor/focaltech
+
     # Required by touchRec for write the touch data
     mkdir /data/vendor/touchrec 0770 input input
     chown input input /data/vendor/touchrec/bootindex

@@ -342,6 +342,9 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/fts/touch_aoi aoi_set 0660 root system
 /sys/class/fts/touch_aoi power_set 0660 root system
 
+#Focaltech FPS
+/dev/focaltech_fp         0660   system     system
+
 # Goodix fingerprint device
 /dev/goodix_fp            0660   system     system
 

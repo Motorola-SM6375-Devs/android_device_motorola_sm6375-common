@@ -225,7 +225,6 @@ ro.incremental.enable=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.vendor.perf-hal.ver=2.2
 
 # QSPM
 ro.vendor.qspm.enable=true

@@ -274,7 +274,8 @@ PRODUCT_PACKAGES += \
     libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json \
+    $(LOCAL_PATH)/configs/powerhint_holi.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint_holi.json
 
 # Properties
 PRODUCT_VENDOR_PROPERTY_BLACKLIST := \

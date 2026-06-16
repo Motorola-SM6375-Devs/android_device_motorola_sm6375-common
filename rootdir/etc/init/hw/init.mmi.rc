@@ -363,3 +363,9 @@ on property:vendor.hw.touch.status="ready"
 
 on property:ro.boot.revision=*
     setprop ro.boot.hardware.revision ${ro.boot.revision}
+
+on init && property:ro.vendor.qti.soc_id="454"
+    setprop vendor.powerhal.config powerhint_holi.json
+
+on init && property:ro.vendor.qti.soc_id="472"
+    setprop vendor.powerhal.config powerhint_holi.json

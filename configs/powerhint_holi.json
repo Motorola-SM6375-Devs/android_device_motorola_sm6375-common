@@ -655,6 +655,18 @@
       "Node": "GPUMinFreq",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPULittleClusterDownRateLimit",
+      "Duration": 0,
+      "Value": "2000"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUBigClusterDownRateLimit",
+      "Duration": 0,
+      "Value": "2000"
     }
   ]
 }
